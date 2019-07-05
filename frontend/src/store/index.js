@@ -18,6 +18,7 @@ export default new Vuex.Store({
   actions: {
     fetchUser({commit}) {
       axios.get("http://localhost:3000/sessions/me", {withCredentials: true}).then(response => {
+        console.log("data")
         commit(SET_USER, response.data);
         localStorage.setItem("currentUser", JSON.stringify(this.state.currentUser));
       }).catch(() => {
@@ -32,7 +33,8 @@ export default new Vuex.Store({
   },
   getters: {
     isAuthenticated: (state) => {
-      return state.currentUser.toString().includes("name");
+      return state.currentUser.name;
+      //return state.currentUser.toString().includes("name");
     }
   }
 })

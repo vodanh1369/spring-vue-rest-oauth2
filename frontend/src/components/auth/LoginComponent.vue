@@ -1,5 +1,5 @@
 <template>
-  <a class="btn btn-block btn-social btn-github" @click.prevent="login">
+  <a class="btn btn-block btn-social btn-github" v-if="!isAuthenticated" @click.prevent="login">
     <span class="fa fa-github"></span> Sign in with Github
   </a>
 </template>
@@ -10,6 +10,11 @@
     methods: {
       login() {
         window.location.href = "http://localhost:3000/sessions/github/callback";
+      }
+    },
+    computed: {
+      isAuthenticated() {
+        return this.$store.getters.isAuthenticated;
       }
     }
   }

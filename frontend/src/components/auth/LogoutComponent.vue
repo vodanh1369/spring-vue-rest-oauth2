@@ -1,5 +1,5 @@
 <template>
-  <a class="btn btn-block" @click.prevent="logout"></a>
+  <a class="btn btn-block" @click.prevent="logout">Logout</a>
 </template>
 
 <script>
@@ -7,7 +7,9 @@
     name: "Logout",
     methods: {
       logout() {
+      	localStorage.removeItem("currentUser");
         this.$store.dispatch("logout");
+        this.$router.push('Login');
       }
     }
   };

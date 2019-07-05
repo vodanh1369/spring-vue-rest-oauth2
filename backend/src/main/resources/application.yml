@@ -9,8 +9,8 @@ security:
     sso:
       login-path: /sessions/github
     client:
-      client-id: clientid
-      client-secret: clientsecret
+      client-id: 127418e220658cc039bc
+      client-secret: ba763fc41bae53be4c9e1905ba4a6a5425cf01e5
       access-token-uri: https://github.com/login/oauth/access_token
       user-authorization-uri: https://github.com/login/oauth/authorize
       token-name: oauth_token
