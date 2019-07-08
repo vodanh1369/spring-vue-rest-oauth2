@@ -21,3 +21,5 @@ security:
       prefer-token-info: false
       user-info-uri: https://api.github.com/user
 
+logging.level.org.springframework.web: DEBUG
+

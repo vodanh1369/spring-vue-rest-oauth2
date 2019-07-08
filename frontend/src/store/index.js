@@ -17,8 +17,7 @@ export default new Vuex.Store({
   },
   actions: {
     fetchUser({commit}) {
-      axios.get("http://localhost:3000/sessions/me", {withCredentials: true}).then(response => {
-        console.log("data")
+      axios.get("http://localhost:3000/sessions/token", {withCredentials: true}).then(response => {
         commit(SET_USER, response.data);
         localStorage.setItem("currentUser", JSON.stringify(this.state.currentUser));
       }).catch(() => {
@@ -27,7 +26,7 @@ export default new Vuex.Store({
     },
     logout({commit}) {
       commit(SET_USER, {});
-      localStorage.setItem("currentUser", {});
+      localStorage.removeItem("currentUser");
       document.cookie = "backend-session" + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
   },

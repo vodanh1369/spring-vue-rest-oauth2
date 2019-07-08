@@ -1,15 +1,20 @@
 <template>
-  <a class="btn btn-block" @click.prevent="logout">Logout</a>
+  <a class="btn btn-block" @click.prevent="logout"></a>
 </template>
 
 <script>
   export default {
     name: "Logout",
+    created() {
+      let currentUser = localStorage.getItem("currentUser");
+      if (currentUser && currentUser !== {}) {
+        this.$store.dispatch("logout");
+      }
+    },
     methods: {
       logout() {
-      	localStorage.removeItem("currentUser");
-        this.$store.dispatch("logout");
-        this.$router.push('Login');
+        this.$store.dispatch("fetchUser");
+       
       }
     }
   };
