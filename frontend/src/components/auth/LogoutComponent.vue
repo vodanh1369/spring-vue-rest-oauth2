@@ -14,7 +14,7 @@
     methods: {
       logout() {
         this.$store.dispatch("fetchUser");
-       
+        this.isAuthenticated = false;
       }
     }
   };
