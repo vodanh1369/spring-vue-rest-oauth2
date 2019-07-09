@@ -21,7 +21,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 @Component
 public class JwtTokenFilter extends OncePerRequestFilter {
 
-    private static final List<String> EXCLUDE_URL = Arrays.asList("/sessions/github/callback","/sessions/token");
+    private static final List<String> EXCLUDE_URL = Arrays.asList("/sessions/github/callback","/sessions/token","/sessions/refresh");
 
     private JwtTokenProvider jwtTokenProvider;
 

@@ -18,6 +18,7 @@ public class MyUserDetails implements UserDetailsService {
     public UserDetails loadUserByUsername(String username){
         return User//
                    .withUsername(username)//
+                   .password("")
                    .authorities(Role.ROLE_USER)//
                    .accountExpired(false)//
                    .accountLocked(false)//
